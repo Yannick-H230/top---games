@@ -27,11 +27,8 @@
     <title>Bootstrap Demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+ 
 </html>
 
 
@@ -40,13 +37,43 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <article class="col">
                 <div class="card shadow-sm">
-                    <img src="C:\Users\yanni\Downloads\Brawl_S.jpg" class="card-img-top" alt="* Brawl Star *">
+                    <img src="C:\Users\yanni\OneDrive\Bureau\ENSEA_3°\DEV WEB\TP2_DEV_WEB\Brawl_S.jpg" class="card-img-top" alt="* Brawl Star *">
                     <div class="card-body">
                         <p class="Explosez et gagnez des parties en solo ou à plusieurs sur des mini-jeux à couper le souffle !"><b>* BRAWL STAR *</b></p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button type="button" 
+                                class="btn btn-sm btn-outline-secondary"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                >View
+                            </button>
+                                
+                                <button type="button" 
+                                class="btn btn-sm btn-outline-secondary"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                >Edit
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="col">
+                <div class="card shadow-sm">
+                    <img src="C:\Users\yanni\OneDrive\Bureau\ENSEA_3°\DEV WEB\TP2_DEV_WEB\Pokemon.jpg" class="card-img-top" alt="Nom du jeu">
+                    <div class="card-body">
+                        <p class="card-text"><b>* POKEMON *</b></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                >View
+                            </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                >Edit
+                            </button>
                             </div>
                         </div>
                     </div>
@@ -54,7 +81,10 @@
             </article>
             
             
+            
             <!-- Ajoutez des cartes ici -->
+
+
         </div>
     </div>
 </div>
@@ -64,16 +94,22 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Titre du modal</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Résumé de BRAWL STAR</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Détails du jeu
+                Explosez et gagnez des parties en solo ou à plusieurs sur des mini-jeux à couper le souffle et des personnages totalement sous crack !
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>
+    <body>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./script.js"></script>
+    
+    </body>
 </div>
 
