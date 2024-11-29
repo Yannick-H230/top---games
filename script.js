@@ -43,6 +43,19 @@ const gamesList = [
 			"https://gaming-cdn.com/images/products/146/orig/the-elder-scrolls-v-skyrim-pc-jeu-steam-europe-cover.jpg?v=1661270991",
 		id: 6,
 	},
+    {
+		title: "* BRAWL STAR *",
+		year: 2018,
+		imageUrl:
+			"https://supercell.com/images/e93a34598d3723641a72eb9ce02691f6/790/games_thumbnail_brawlstars.5cd76330.webp",
+		id: 7,
+	},	{
+		title: "Pokemon",
+		year: 1995,
+		imageUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTERSnkLVBs2FhceOgJUJ8LscTH5OUWwzxSg&s",
+		id: 8,
+	}
 ]
 
 function writeDom() {
@@ -65,12 +78,14 @@ function writeDom() {
         
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary"
+                <button type="button" class="btn btn-sm btn-outline-secondary view "
                 data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-edit-id="${game.id}"
                 >View
             </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary"
+                <button type="button" class="btn btn-sm btn-outline-secondary edit"
                 data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-edit-id="${game.id}"
                 >Edit
             </button>
             </div>
@@ -82,5 +97,55 @@ function writeDom() {
 }
 writeDom()
 
+
+const editButtons = document.querySelectorAll(".edit")
+editButtons.forEach((btn) => {
+	btn.addEventListener("click", (e) => {
+		editModal(e.target.getAttribute("data-edit-id"))
+	})
+})
+
+function editModal(gameId) {
+	// console.log(gameId, gamesList)
+	// Trouvez le jeu en fonction de son identifiant
+	const result = gamesList.findIndex((game) => game.id === parseInt(gameId))
+	modifyModal("Mode Edition")
+}
+
+function modifyModal(modalTitle) {
+	// Écrir le nom du jeu dans le titre du modal
+	document.querySelector(".modal-title").textContent = gamesList[result].title
+}
+
+const viewButtons = document.querySelectorAll(".view")
+viewButtons.forEach((btn) => {
+	btn.addEventListener("click", (e) => {
+		viewModal(e.target.getAttribute("data-edit-id"))
+	})
+})
+
+function viewModal(gameId) {
+	 console.log(gameId, gamesList)
+	// Trouvez le jeu en fonction de son identifiant
+	const result = gamesList.findIndex((game) => game.id === parseInt(gameId))
+    console.log(gamesList[result].imageUrl)
+	const modalBody = `<img src="${gamesList[result].imageUrl}" alt="${gamesList[result].title}" class="img-fluid" />`
+	modifyModal(gamesList[result].title, modalBody)
+}
+
+function editModal(gameId) {
+	// console.log(gameId, gamesList)
+	// Trouvez le jeu en fonction de son identifiant
+	const result = gamesList.findIndex((game) => game.id === parseInt(gameId))
+	// passer une image comme corps du modal
+	const modalBody = `<h4>ajoutez un formulaire pour modifier le jeu ici</h4>`
+	modifyModal("Mode Edition", modalBody)
+}
+
+function modifyModal(modalTitle, modalBody) {
+	// Écrir le nom du jeu dans le titre du modal
+	document.querySelector(".modal-title").textContent = modalTitle
+	document.querySelector(".modal-body").innerHTML = modalBody
+}
 
 
